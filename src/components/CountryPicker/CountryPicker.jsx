@@ -15,11 +15,10 @@ const CountryPicker = ({handleCountryChange}) => {
     
         fetchAPI();
       }, [setCountries]);
-      console.log(countries);
     return (
         <FormControl className={styles.formControl}>
             <NativeSelect defaultValue="" onChange={(e)=> handleCountryChange(e.target.value)}>
-                 <option value="">USA</option>
+                 <option value="">Daily Cases in USA</option>
                  {countries.map((country, i)=> <option key={i} value={country}>{country}</option>)}
             </NativeSelect>
         </FormControl>

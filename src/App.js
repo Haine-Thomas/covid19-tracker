@@ -4,7 +4,7 @@ import Cards from './components/Cards/Cards';
 import Chart from './components/Chart/Chart';
 import CountryPicker from './components/CountryPicker/CountryPicker';
 import styles from './App.module.css';
-
+import { Typography } from '@material-ui/core';
 import image from './image/image.png';
 import { fetchData } from './api/index';
 
@@ -29,7 +29,8 @@ class App extends React.Component {
    
   return (
     <div className={styles.container}>
-      <img src={image} className={styles.image} alt="COVID-19" />
+      <img src={image} className={styles.image} alt="COVID-19"/>
+      { this.state.country === "" ? <Typography variant="h4" component="h2">Global</Typography> : <Typography className="global"  variant="h4" component="h2">{this.state.country}</Typography> }
       <Cards  data={ data } />
       <CountryPicker handleCountryChange={this.handleCountryChange} />
       <Chart data={data}  country={country} />
